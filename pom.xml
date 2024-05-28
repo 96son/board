@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.3</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	
+	<!-- groupId : 
+					- 모든 프로젝트 중에서 당신의 프로젝트를 식별하게 해주는 식별자
+					- groupId는 Java의 패키지 이름 규칙을 따라야 함. 즉 제어하는 도메인 이름의
+					  반대로 시작
+					- 만약에 프로젝트가 다중 모듈 프로젝트인 경우 부모의 groupId에 새 식별자를 추가해 사용
+	
+	 -->
+	 <!-- artifactId : 
+	 					- 버전 없는 jar파일의 이름
+	 					- 특수 문자를 사용하지 않고 소문자로만 작성
+	 					- third party jar 파일인 경우면, 할당된 이름을 사용해야 함 
+	  -->
+	  <!-- version :
+	  				- 숫자와 점으로 이루어진 일반적인 버전 형태를 사용
+	  				- SNAPSHOT 빌드 날짜를 버전으로 사용하지 않도록 함
+	  				- 써드 파티 아티팩트라면 그들의 버전 넘버를 이어받아 사용하도록 함
+	  
+	    -->
+	
+	<groupId>com.msoffice.work</groupId>
+	<artifactId>workApplication</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>workApplication</name>
+	<description>Demo project for Spring Boot</description>
+	<!-- 배포 형식 지정 -->
+	<packaging>war</packaging>
+
+
+
+	
+	<properties>
+		<java.version>8</java.version>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		
+		
+		<!-- OracleDB
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<scope>runtime</scope>
+		</dependency> -->
+		
+		<!-- mariaDB -->
+		<dependency>
+		  <groupId>org.mariadb.jdbc</groupId>
+		  <artifactId>mariadb-java-client</artifactId>
+		  <version>2.6.0</version>
+		</dependency>
+		
+		
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency> -->
+
+		<!-- log4jdbc /두개 파일도 붙여야 함 -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>	
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+		</dependency>
+		
+		
+		<!-- jstl 라이브러리 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency> 
+			<groupId>org.springframework.boot</groupId> 
+		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		
+		<!-- THYMELEAF의 FRAGMENT 사용을 위한 추가 -->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!--validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!--html에서 시큐리티 정보 가져올 수 있는 태그 https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
+		<!-- <dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.0.7.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+			<version>3.0.4.RELEASE</version>
+		</dependency> -->
+		
+		<!--tomcat라이브러리 이용하기위한 것, 배포 이후에는 내장tomcat이 아닌 이미 존재하는 tomcat서버 이용위함  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency> 
+		
+	</dependencies>
+
+	<build>
+		<finalName>${artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="boardMapper">
+	<resultMap type="com.msoffice.work.board.BoardVO" id="board">
+		<!--회원  -->
+		<id column="MEMBER_ID" 							property="memberId"/>
+		<result column="MEMBER_PW"						property="memberPw"/>
+		<result column="MEMBER_NAME"					property="memberName"/>
+		<result column="EMAIL"							property="email"/>
+		<result column="NICK_NAME"						property="nickName"/>
+		<result column="GENDER_YN"						property="genderYn"/>
+		<result column="ADMIN_YN"						property="adminYn"/>
+		<result column="MEMBER_CREATE_DATE"				property="memberCreateDate"/> 
+	
+		<!--게시판  -->
+		<result column="BOARD_SEQ" 							property="boardSeq"/>
+		<result column="BOARD_TITLE"					property="boardTitle"/>
+		<result column="BOARD_CONTENT"					property="boardContent"/>
+		<result column="BOARD_REG_DATE"					property="boardRegDate"/>
+		<result column="SECUR_YN"					property="securYn"/>
+		<result column="READ_CNT"						property="readCnt"/> 
+		
+	</resultMap>
+	
+	<!--회원가입  -->
+	<insert id="regJoin">
+		INSERT INTO keivb656534.T_BOARD_MEMBER (
+				MEMBER_ID
+				,MEMBER_PW
+				,MEMBER_NAME
+				,EMAIL
+				,NICK_NAME
+				,GENDER_YN
+				,ADMIN_YN
+				,MEMBER_CREATE_DATE) 
+		VALUES (
+			 #{memberId}
+			, #{memberPw}
+			, #{memberName}
+			, #{email}
+			, #{nickName}
+			, #{genderYn}
+			, #{adminYn}
+			, NOW()
+			)
+	</insert>
+	<!--id 중복 확인  -->
+<!-- 	
+	<select id="selectDuplicatedId" resultMap="board">
+		SELECT MEMBER_ID
+	 			, MEMBER_NAME
+	 			, MEMBER_TELL
+	 			, EMAIL
+	 			, NICK_NAME
+	 			, GENDER
+	 			, DATE_FORMAT(MEMBER_CREATE_DATE, '%Y-%m-%d') AS MEMBER_CREATE_DATE
+	 	FROM PRACTICE_MEMBER 
+	 	WHERE MEMBER_ID = #{memberId}
+	</select>
+-->	
+	
+	
+	<!-- 로그인 확인 -->
+	<select id="loginCheck" resultMap="board">
+		SELECT MEMBER_ID
+			, MEMBER_NAME
+			, NICK_NAME
+			, GENDER_YN
+			, ADMIN_YN
+		FROM keivb656534.T_BOARD_MEMBER
+		WHERE MEMBER_ID =  #{memberId}
+		AND MEMBER_PW =  #{memberPw}
+	</select> 
+	
+	
+	<!--게시판 조회  -->
+	<select id="selectBoardList" resultMap="board">
+		SELECT BOARD_SEQ
+				,BOARD_TITLE
+				,BOARD_CONTENT
+				,BOARD_REG_DATE
+				,MEMBER_ID
+				,SECUR_YN
+				,READ_CNT
+		FROM keivb656534.T_BOARD
+	</select>
+	
+	
+	
+</mapper>

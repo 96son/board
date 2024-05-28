@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>기본 레이아웃</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Bootstrap core JavaScript-->
+<!-- <script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="/js/demo/chart-area-demo.js"></script>
+<script src="/js/demo/chart-pie-demo.js"></script>
+
+<!-- datatable 데이터테이블 -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+
+
+
+
+
+
+<!-- Custom fonts for this template-->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+
+
+
+<!-- min-height : 
+		min-height를 지정하면 main 영역 내부에 하위 요소들이 작더라도 지정해 준 최소 길이를 유지함. 
+		그리고 하위 요소들이 커지면서 그 높이가 min-height 값을 초과하면, 길이가 자동으로 늘어남. */
+ -->
+<style>
+.layout {
+	width: 1366px;
+	height: 768px;
+	display: grid;
+	grid: "sidebar body" 1fr/auto 1fr;
+	gap: 8px;
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+ 
+.body {
+	grid-area: body;
+
+}
+</style>
+
+
+
+</head>
+
+
+<body id="page-top">
+	<div id="wrapper">
+	
+		<!--레이아웃  -->
+		<section class="layout">
+			<div class="sidebar">
+				<div th:replace="fragment/side_bar::side"></div>
+			</div>
+			<div class="body">
+				<div id="content-wrapper" class="d-flex flex-column">
+					<div id="content">
+						<div th:replace="fragment/top::top"></div>
+						<div layout:fragment="content"></div>
+					</div>
+					<footer class="sticky-footer bg-white">
+						<div th:replace="fragment/bottom::bottom"></div>
+					</footer>
+				</div>
+			</div>
+		</section>
+	
+	</div>
+
+
+
+
+    	
+</body>
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
