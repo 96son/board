@@ -27,6 +27,3 @@ function createRow(...params)
 	dtBoardList.row.add(params).draw();
 }
 
-alert("dklsjfklsdjklf");
-alert("dklsjfklsdjklf");
-alert("dklsjfklsdjklf");
