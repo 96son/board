@@ -27,3 +27,4 @@ function createRow(...params)
 	dtBoardList.row.add(params).draw();
 }
 
+alert("dfdkfkj");
