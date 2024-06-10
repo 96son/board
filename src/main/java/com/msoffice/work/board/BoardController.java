@@ -20,6 +20,12 @@ public class BoardController {
 	@Resource(name = "boardService")// bean에서 끌어다 쓴 BoardServiceImpl객체
 	private BoardServiceImpl boardServiceImpl;
 	
+	//임시
+	@GetMapping("/newFile")
+	public String newFile() {
+		return "tempfolder/NewFile";
+	}
+	
 	
 	//view
 	
