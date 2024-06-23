@@ -17,13 +17,15 @@
                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                        </div>
                        <div class="card-body">
-                           <div class="table-responsive" id="boardList">
-                          		<table id="tbBoardList" class="widthMax table table-dark table-striped table-hover" style="margin: 0 0; border-collapse: collapse;">
-                           		<thead style="height: 3rem;">
+                           <div class="table-responsive" style="overflow-y: scroll; height: 400px;">
+                          		<table class="table table-bordered" id="dataTable" style="width: 1000px;">
+                           		<thead>
 	                                <tr>
-	                                    <th>FileName</th>
-	                                    <th>FileSize</th>
-	                                    <th>FileName</th>
+	                                    <th>번호</th>
+	                                    <th>제목</th>
+	                                    <th>작성자</th>
+	                                    <th>작성일</th>
+	                                    <th>조회수</th>
 	                                </tr>
                             	</thead>
 	                            <tbody class="table-group-divider" style="border-top-color: #CCCCCC">
@@ -36,14 +38,14 @@
                </div>
 			<script type="text/javascript" src="/js/board/dataTables.js"></script>			
 			<script th:inline="javascript">
-				var boardList = /*[[${boardList}]]*/[]; //타임리프 특이 문법
+				var boardList = /*[[${boardList}]]*/[]; //타임리프 특이 문법 
 
 				$(document).ready(function(){
-					alert("테스트");
+					alert("테스트123");
 					
 					initializeDataTable();
 					for (let board of boardList) {
-						createRow(board.boardTitle, board.boardContent, board.boardRegDate );
+						createRow(board.boardSeq, board.boardTitle,board.memberId, board.boardRegDate, board.readCnt );
 					}			
 				});
 			</script>
