@@ -14,5 +14,8 @@ public interface BoardService {
 	//게시판 조회
 	public List<BoardVO> selectBoardList(Map<String, Object> paramMap);
 	
+	//게시판 상세조회
+	public BoardVO selectBoardDtl(Map<String, Object> paramMap);
+	
 
 }

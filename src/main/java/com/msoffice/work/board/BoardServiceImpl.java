@@ -58,6 +58,12 @@ public class BoardServiceImpl implements BoardService{
 		return sqlSessionTemplate.selectList("boardMapper.selectBoardList",paramMap);
 	}
 
+	//게시판 상세조회
+	@Override
+	public BoardVO selectBoardDtl(Map<String, Object> paramMap) {
+		return sqlSessionTemplate.selectOne("boardMapper.selectBoardDtl",paramMap);
+	}
+
 
 
 
