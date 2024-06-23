@@ -86,7 +86,17 @@
 				,READ_CNT
 		FROM keivb656534.T_BOARD
 	</select>
-	
-	
+	<!--게시판 상세 조회  -->
+	<select id="selectBoardDtl" resultMap="board">
+	SELECT BOARD_SEQ
+				,BOARD_TITLE
+				,BOARD_CONTENT
+				,BOARD_REG_DATE
+				,MEMBER_ID
+				,SECUR_YN
+				,READ_CNT
+	FROM keivb656534.T_BOARD
+	WHERE BOARD_SEQ = #{boardSeq}
+	</select>
 	
 </mapper>
