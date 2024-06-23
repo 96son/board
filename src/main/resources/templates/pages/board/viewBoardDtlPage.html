@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/base_layout}">
+
+
+<div layout:fragment="content">
+	<div class="container-fluid">
+
+		<!--boardSelectInfo 영역  -->
+		<h1 class="h4 mb-1 text-gray-800">게시판-상세</h1>
+		<div></div>
+
+		<div class="row">
+			<div class="col-xl-12 col-lg-5">
+				<div class="card shadow mb-4">
+
+					<!--카테고리 탭영역  -->
+					<div class="card-header py-3">
+						<h6 class="m-0 font-weight-bold text-primary">카테고리 탭</h6>
+					</div>
+
+					<!-- boardInfo영역 -->
+					<div class="card-body">
+						<div class="chart-pie pt-4">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">제목</span>
+								<div th:text="${detail.boardTitle}"></div>
+							</div>
+
+							<div class="input-group mb-3">
+								<span class="col-3">날짜</span>
+								<span th:text="${detail.boardRegDate}"></span>
+								<span class="col-3">작성자</span>
+								<span th:text="${detail.memberId}"></span> 
+								<span class="col-3">조회수</span>
+								<span th:text="${detail.readCnt}"></span>
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-text">내용</span>
+								<textarea class="form-control" aria-label="With textarea" th:text="${detail.boardContent}"></textarea>
+							</div>
+						</div>
+						<hr>
+						게시판 하단 
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+</html>
